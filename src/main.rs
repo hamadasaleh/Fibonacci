@@ -9,7 +9,7 @@ fn main() {
     // We create a variable n to store the user input
     // We make the variable mutable, that is its value can change after it has been defined
     // which strays from default behaviour in Rust
-    // We bind n to a new instance of the integer 32 type provided by the standard library
+    // We bind n to a new instance of the String type provided by the standard library
     // the ::new is an associated function of the String type (a 'method' in Python)
     let mut n = String::new();
 
@@ -20,7 +20,7 @@ fn main() {
     io::stdin().read_line(&mut n).expect("Failed to read line");
 
     // We shadow the previous value of n with a new one
-    let n: u64 = n.trim().parse().expect("Please type a number!");
+    let n: u128 = n.trim().parse().expect("Please type a number!");
 
     let u = smart_fibonacci(n);
     // Separate thousands with ','
@@ -28,8 +28,8 @@ fn main() {
 }
 
 /// This algorithm scales linearly with n
-/// The limit for representing u64 is reached for n=94
-fn smart_fibonacci(n: u64) -> u64 {
+/// The limit for representing u128 is reached for n=94
+fn smart_fibonacci(n: u128) -> u128 {
     if n < 2 {
         n
     } else {
@@ -52,7 +52,7 @@ fn smart_fibonacci(n: u64) -> u64 {
 
 /// This algorithm scales exponentially with n
 #[allow(dead_code)] // Removes unused function warning. Use sparingly, as is good practice to remove genuinely unnecesary functions to keep clean codebase.
-fn naive_fibonacci(n: u64) -> u64 {
+fn naive_fibonacci(n: u128) -> u128 {
     if n < 2 {
         n
     } else {
